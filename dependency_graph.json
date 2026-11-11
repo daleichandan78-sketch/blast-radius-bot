@@ -1,0 +1,62 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "validate_user"
+    },
+    {
+      "id": "check_db_connection"
+    },
+    {
+      "id": "log_status"
+    },
+    {
+      "id": "print"
+    },
+    {
+      "id": "checkout"
+    },
+    {
+      "id": "charge_card"
+    },
+    {
+      "id": "send_receipt"
+    }
+  ],
+  "links": [
+    {
+      "source": "validate_user",
+      "target": "check_db_connection"
+    },
+    {
+      "source": "check_db_connection",
+      "target": "log_status"
+    },
+    {
+      "source": "log_status",
+      "target": "print"
+    },
+    {
+      "source": "checkout",
+      "target": "validate_user"
+    },
+    {
+      "source": "checkout",
+      "target": "charge_card"
+    },
+    {
+      "source": "checkout",
+      "target": "send_receipt"
+    },
+    {
+      "source": "charge_card",
+      "target": "log_status"
+    },
+    {
+      "source": "send_receipt",
+      "target": "log_status"
+    }
+  ]
+}

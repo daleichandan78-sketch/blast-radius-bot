@@ -7,7 +7,8 @@ def check_db_connection():
 
 def log_status(message):
     print(f"[LOG]: {message}")
-print("Updating log...")
+    print("Testing blast radius diff...")
+    
 def checkout(user_id, amount):
     if validate_user(user_id):
         charge_card(amount)

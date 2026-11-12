@@ -4,59 +4,123 @@
   "graph": {},
   "nodes": [
     {
-      "id": "validate_user"
+      "name": "validate_user",
+      "file": "app_logic.py",
+      "start_line": 1,
+      "end_line": 3,
+      "id": "app_logic.py::validate_user"
     },
     {
-      "id": "check_db_connection"
+      "name": "check_db_connection",
+      "file": "app_logic.py",
+      "start_line": 5,
+      "end_line": 6,
+      "id": "app_logic.py::check_db_connection"
     },
     {
-      "id": "log_status"
+      "name": "log_status",
+      "file": "app_logic.py",
+      "start_line": 8,
+      "end_line": 10,
+      "id": "app_logic.py::log_status"
     },
     {
-      "id": "print"
+      "name": "checkout",
+      "file": "app_logic.py",
+      "start_line": 12,
+      "end_line": 15,
+      "id": "app_logic.py::checkout"
     },
     {
-      "id": "checkout"
+      "name": "charge_card",
+      "file": "app_logic.py",
+      "start_line": 17,
+      "end_line": 18,
+      "id": "app_logic.py::charge_card"
     },
     {
-      "id": "charge_card"
+      "name": "send_receipt",
+      "file": "app_logic.py",
+      "start_line": 20,
+      "end_line": 21,
+      "id": "app_logic.py::send_receipt"
     },
     {
-      "id": "send_receipt"
+      "name": "load_graph",
+      "file": "blast_radius.py",
+      "start_line": 6,
+      "end_line": 9,
+      "id": "blast_radius.py::load_graph"
+    },
+    {
+      "name": "calculate_blast_radius",
+      "file": "blast_radius.py",
+      "start_line": 11,
+      "end_line": 20,
+      "id": "blast_radius.py::calculate_blast_radius"
+    },
+    {
+      "name": "parse_python_file",
+      "file": "graph_sync.py",
+      "start_line": 11,
+      "end_line": 35,
+      "id": "graph_sync.py::parse_python_file"
+    },
+    {
+      "name": "extract_calls",
+      "file": "graph_sync.py",
+      "start_line": 18,
+      "end_line": 32,
+      "id": "graph_sync.py::extract_calls"
+    },
+    {
+      "name": "handle_payment_request",
+      "file": "payment_api.py",
+      "start_line": 3,
+      "end_line": 5,
+      "id": "payment_api.py::handle_payment_request"
     }
   ],
-  "links": [
+  "edges": [
     {
-      "source": "validate_user",
-      "target": "check_db_connection"
+      "source": "app_logic.py::validate_user",
+      "target": "app_logic.py::check_db_connection"
     },
     {
-      "source": "check_db_connection",
-      "target": "log_status"
+      "source": "app_logic.py::check_db_connection",
+      "target": "app_logic.py::log_status"
     },
     {
-      "source": "log_status",
-      "target": "print"
+      "source": "app_logic.py::checkout",
+      "target": "app_logic.py::send_receipt"
     },
     {
-      "source": "checkout",
-      "target": "validate_user"
+      "source": "app_logic.py::checkout",
+      "target": "app_logic.py::validate_user"
     },
     {
-      "source": "checkout",
-      "target": "charge_card"
+      "source": "app_logic.py::checkout",
+      "target": "app_logic.py::charge_card"
     },
     {
-      "source": "checkout",
-      "target": "send_receipt"
+      "source": "app_logic.py::charge_card",
+      "target": "app_logic.py::log_status"
     },
     {
-      "source": "charge_card",
-      "target": "log_status"
+      "source": "app_logic.py::send_receipt",
+      "target": "app_logic.py::log_status"
     },
     {
-      "source": "send_receipt",
-      "target": "log_status"
+      "source": "blast_radius.py::calculate_blast_radius",
+      "target": "blast_radius.py::load_graph"
+    },
+    {
+      "source": "graph_sync.py::parse_python_file",
+      "target": "graph_sync.py::extract_calls"
+    },
+    {
+      "source": "payment_api.py::handle_payment_request",
+      "target": "app_logic.py::checkout"
     }
   ]
 }
